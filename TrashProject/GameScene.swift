@@ -68,7 +68,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         Piece(name: "woodenSpoon", type:.trash),
         Piece(name: "toys", type:.trash),
         Piece(name: "tshirt", type:.trash),
-        
+        Piece(name: "foil", type:.trash),
         
         // Recycling
         Piece(name: "bake", type:.recycling),
@@ -82,7 +82,6 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         Piece(name: "envelopes", type:.recycling),
         Piece(name: "etrash", type:.recycling),
         Piece(name: "fluolight", type:.recycling),
-        Piece(name: "foil", type:.trash),
         Piece(name: "fridge", type:.recycling),
         Piece(name: "mattress", type:.recycling),
         Piece(name: "paintcans", type:.recycling),
@@ -90,7 +89,6 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         Piece(name: "paperBag", type:.recycling),
         Piece(name: "milkCarton", type:.recycling),
         Piece(name: "Yogogo", type:.recycling),
-        Piece(name: "battery", type:.recycling),
         Piece(name: "soda", type:.recycling),
         Piece(name: "foil", type:.recycling),
         Piece(name: "shampoo", type:.recycling),
