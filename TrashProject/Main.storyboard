@@ -975,7 +975,7 @@
         <image name="carpet" width="222" height="222"/>
         <image name="cerealBox" width="144" height="174"/>
         <image name="clouds" width="650" height="651"/>
-        <image name="diapers" width="144" height="115"/>
+        <image name="diapers" width="144" height="144"/>
         <image name="drink" width="50" height="107"/>
         <image name="eggCarton" width="150" height="82"/>
         <image name="eggShells" width="150" height="106"/>
@@ -1001,7 +1001,7 @@
         <image name="shampoo" width="144" height="144"/>
         <image name="shotNeedle" width="144" height="166"/>
         <image name="soda" width="83" height="144"/>
-        <image name="straw" width="144" height="115"/>
+        <image name="straw" width="125" height="167"/>
         <image name="tires" width="120" height="111"/>
         <image name="toothpick" width="150" height="167"/>
         <image name="toys" width="150" height="111"/>
@@ -1010,10 +1010,10 @@
         <image name="yogogo" width="130" height="146"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aUh-uM-Cqg"/>
+        <segue reference="faC-Pd-FhS"/>
         <segue reference="9eR-99-abm"/>
-        <segue reference="HXl-57-NHf"/>
-        <segue reference="pZ9-Vm-5Uu"/>
-        <segue reference="39d-Dr-TQa"/>
+        <segue reference="6YT-88-atI"/>
+        <segue reference="wjc-lX-Nbs"/>
+        <segue reference="pKy-QZ-IVy"/>
     </inferredMetricsTieBreakers>
 </document>
