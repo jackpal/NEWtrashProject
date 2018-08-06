@@ -11,73 +11,73 @@ import GameplayKit
 
 class GameScene: SKScene,  SKPhysicsContactDelegate {
     var viewController: GameViewController?
-    
+
     // Define collision cetegories
     private let pieceCategory    : UInt32 = 0x1 << 0
     private let bucketCategory   : UInt32 = 0x1 << 1
     private let boundaryCategory : UInt32 = 0x1 << 2
-    
+
     private var label : SKLabelNode?
-    
+
     private var livesLabel : SKLabelNode!
     private var scoreLabel : SKLabelNode!
     private var statusLabel : SKLabelNode!
-    
+
     private var lives : Int = 0 {
         didSet {
             livesLabel.text = "Lives: \(lives)"
         }
     }
-    
+
     private var score: Int = 0 {
         didSet {
             scoreLabel.text = "Score: \(score)"
         }
     }
-    
+
     private var status: String = "" {
         didSet {
             statusLabel.text = "Status: \(status)"
         }
     }
-    
+
     private var caughtTrash : SKNode?
-    
+
     var i : Int = 0
-   
+
     override func didMove(to view: SKView) {
         setupGameWorld()
 
         // Start dropping pieces.
         startDroppingPieces()
     }
-    
+
     func setupGameWorld() {
-        
+
         setupLabels()
-        
+
         lives = 3
         score = 0
-       
-        
+
+
         // A wall to the garbage doesnt go past the trash cans.
         let boundaryWall = frame.insetBy(dx:-500, dy:-500)
         self.physicsBody = SKPhysicsBody(edgeLoopFrom:boundaryWall)
         self.physicsBody?.categoryBitMask = boundaryCategory
-        
+
         // Set self as the contact delegate. didBegin will be called when collisions occur.
         physicsWorld.contactDelegate = self
-        
+
         // Slow down gravity
         physicsWorld.gravity = CGVector(dx: 0, dy: -1.5)
-        
-        
+
+
         //Adds three buckets
         addBucket(bucketName: "trash", startingPosition: CGPoint(x: -355, y: -600), size: CGPoint(x: 235, y: 300))
         addBucket(bucketName: "recycling", startingPosition: CGPoint(x: -120, y: -600), size: CGPoint(x: 235, y: 300))
         addBucket(bucketName: "compost", startingPosition: CGPoint(x: 115, y: -600), size: CGPoint(x: 235, y: 300))
     }
-    
+
     func startDroppingPieces() {
         let wait = SKAction.wait(forDuration: 1.7) //change drop speed here
         let block = SKAction.run({
@@ -85,31 +85,31 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
             self.addRandomPiece()
         })
         let sequence = SKAction.sequence([wait,block])
-        
+
         run(SKAction.repeatForever(sequence), withKey: "pieceDropper")
     }
-    
+
     func addRandomPiece() {
         // Pick a random piece
         let piece = allPieces[Int(arc4random_uniform(UInt32(allPieces.count)))]
-        
+
         // Picks a random number between frame.minX and frame.maxX
         let x = CGFloat(arc4random_uniform(UInt32(frame.width))) + frame.minX
-        
+
         addPiece(imageName: piece.name,
                  nodeName: piece.type,
                       startingPosition: CGPoint(x:x, y: frame.maxY))
 
     }
-    
+
 
         //add more types of trash, also add recycling and compost image names, corrosponds to assets/pics
-    
+
 
 
     //Adds a piece of trash/recycling/compost to scene. Image name is the Asset picture name.
     // Node name should be "trash" or "recycling" or "compost"
-    
+
     func addPiece(imageName: String, nodeName: PieceType, startingPosition: CGPoint) {
         let piece = SKSpriteNode(imageNamed: imageName)
         piece.name = nodeName.rawValue
@@ -119,11 +119,11 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         piece.physicsBody?.categoryBitMask = pieceCategory
         piece.physicsBody?.contactTestBitMask = pieceCategory | bucketCategory | boundaryCategory
         addChild(piece)
-        
+
         print("Added \(piece)")
     }
-    
-    
+
+
     //Bucket name should be "recyclingBucket" "trashBucket" "compostBucket"
     //Add bucket
     func addBucket(bucketName: String, startingPosition: CGPoint, size: CGPoint) {
@@ -143,27 +143,27 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         bucket.physicsBody?.categoryBitMask = bucketCategory
         addChild(bucket)
     }
-    
+
     func setupLabels() {
         livesLabel = SKLabelNode(fontNamed: "Chalkduster")
         livesLabel.fontSize = 55
         livesLabel.fontColor = .white
         livesLabel.position = CGPoint(x: frame.minX + 550, y: frame.maxY - 50)
-        
+
         addChild(livesLabel)
-        
+
         scoreLabel = SKLabelNode(fontNamed: "Chalkduster")
         scoreLabel.fontSize = 55
         scoreLabel.fontColor = .black
         scoreLabel.position = CGPoint(x: frame.maxX - 550, y: frame.maxY - 50)
-        
+
         addChild(scoreLabel)
-        
+
         statusLabel = SKLabelNode(fontNamed: "Chalkduster")
         statusLabel.fontSize = 50
         statusLabel.fontColor = .white
         statusLabel.position = CGPoint(x: frame.minX + 420 , y: frame.maxY - 100)
-        
+
         addChild(statusLabel)
     }
 
@@ -174,40 +174,40 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
             caughtTrash = node
         }
     }
-    
+
     // called when finger moves during drag
     func touchMoved(toPoint pos : CGPoint) {
         if let haveCaughtTrash = caughtTrash {
             haveCaughtTrash.position = pos
         }
     }
-    
+
     // called when drag ends
     func touchEnd(atPoint pos : CGPoint) {
         caughtTrash = nil
     }
-        
+
     // called by system when drag begins
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchBegin(atPoint:touch.location(in: self))
         }
     }
-    
+
     // called by system when drag moves
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchMoved(toPoint:touch.location(in: self))
         }
     }
-    
+
     // called by system when drag ends
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchEnd(atPoint:touch.location(in: self))
         }
     }
-    
+
     // called by system when drag is cancelled like when a phone call is recived
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
@@ -219,7 +219,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
-        
+
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -237,7 +237,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
             case bucketCategory:
                 let pieceName = firstBody.node!.name!
                 let bucketName = secondBody.node!.name!
-                
+
                 if pieceName == bucketName {
                     score += 1 //adding one point
                     status = "Correct"
@@ -263,18 +263,18 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
             }
         }
     }
-    
+
     func removeBody(body: SKPhysicsBody) {
         if let node = body.node {
             node.removeFromParent()
             node.physicsBody = nil
         }
     }
-    
+
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
-    
+
 
 }
 

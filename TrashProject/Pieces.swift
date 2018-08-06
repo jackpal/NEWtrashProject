@@ -34,7 +34,7 @@ struct Piece {
 let allPieces = [
   Piece(name: "diapers", type:.trash, description: "Diapers should be thrown in the trash"),
   Piece(name: "straw", type:.trash),
-  Piece(name: "candyWrapper", type:.trash),//Teacher suggests type should be string
+  Piece(name: "candyWrapper", type:.trash),
   Piece(name: "paperCup", type:.trash),
   Piece(name: "oldBulb", type:.trash),
   Piece(name: "shotNeedle", type:.trash),

@@ -19,30 +19,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="clouds" translatesAutoresizingMaskIntoConstraints="NO" id="I0d-Ig-Mf3">
-                                <rect key="frame" x="-279" y="0.0" width="985" height="519"/>
+                                <rect key="frame" x="-275" y="-8" width="985" height="675"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRM-gS-dTY">
-                                <rect key="frame" x="145" y="479" width="85" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <state key="normal" title="INDEX">
-                                    <color key="titleColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="uwJ-vv-icj" kind="show" id="6YT-88-atI"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CATCH THE TRASH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRw-m7-3Ng">
-                                <rect key="frame" x="51" y="162" width="272" height="63"/>
+                                <rect key="frame" x="51" y="86" width="272" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hi-pS-wTN">
-                                <rect key="frame" x="96" y="527" width="183" height="40"/>
+                                <rect key="frame" x="96" y="439" width="183" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
@@ -54,7 +42,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0X-OA-d0i">
-                                <rect key="frame" x="145" y="410" width="85" height="40"/>
+                                <rect key="frame" x="145" y="381" width="85" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <state key="normal" title="PLAY">
@@ -64,12 +52,16 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="wjc-lX-Nbs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QB9-ht-MGG">
-                                <rect key="frame" x="155" y="575" width="65" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRM-gS-dTY">
+                                <rect key="frame" x="145" y="510" width="85" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="TrashDex"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="INDEX">
+                                    <color key="titleColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
-                                    <segue destination="SnQ-H2-kCS" kind="show" id="KZN-Fr-Ldn"/>
+                                    <segue destination="SnQ-H2-kCS" kind="show" id="X3d-Wb-xQA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -404,7 +396,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drink" translatesAutoresizingMaskIntoConstraints="NO" id="h3X-LC-mpZ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paperCup" translatesAutoresizingMaskIntoConstraints="NO" id="h3X-LC-mpZ">
                                 <rect key="frame" x="196" y="518" width="47" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -474,6 +466,9 @@
                                 <rect key="frame" x="19" y="20" width="41" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Home"/>
+                                <connections>
+                                    <segue destination="0vf-Mu-UEq" kind="show" id="lp9-do-Cyr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -852,10 +847,6 @@
                                 <rect key="frame" x="154" y="273" width="134" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="straw" translatesAutoresizingMaskIntoConstraints="NO" id="XJO-Gg-Qtj">
-                                <rect key="frame" x="181" y="532" width="91" height="68"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Straws go in the trash." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTY-oc-dCc">
                                 <rect key="frame" x="263" y="542" width="102" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -876,6 +867,10 @@
                             </textView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="shotNeedle" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-5S-ci8">
                                 <rect key="frame" x="163" y="350" width="77" height="59"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="straw" translatesAutoresizingMaskIntoConstraints="NO" id="XJO-Gg-Qtj">
+                                <rect key="frame" x="152" y="512" width="139" height="99"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
@@ -1034,57 +1029,56 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appleCore" width="98" height="144"/>
-        <image name="avocadoPits" width="1506" height="1740"/>
-        <image name="bake" width="144" height="137"/>
-        <image name="battery" width="144" height="140"/>
+        <image name="appleCore" width="109" height="144"/>
+        <image name="avocadoPits" width="144" height="144"/>
+        <image name="bake" width="144" height="113"/>
+        <image name="battery" width="144" height="144"/>
         <image name="bubbleWrap" width="500" height="500"/>
-        <image name="can" width="144" height="185"/>
+        <image name="can" width="78" height="144"/>
         <image name="candyWrapper" width="144" height="108"/>
-        <image name="car" width="144" height="65"/>
-        <image name="cardboardBox" width="144" height="107"/>
-        <image name="carpet" width="222" height="222"/>
-        <image name="cerealBox" width="144" height="174"/>
-        <image name="clouds" width="650" height="651"/>
-        <image name="diapers" width="144" height="115"/>
-        <image name="drink" width="50" height="107"/>
+        <image name="car" width="150" height="70"/>
+        <image name="cardboardBox" width="144" height="115"/>
+        <image name="carpet" width="144" height="105"/>
+        <image name="cerealBox" width="144" height="138"/>
+        <image name="clouds" width="637" height="720"/>
+        <image name="diapers" width="144" height="144"/>
         <image name="eggCarton" width="150" height="82"/>
-        <image name="eggShells" width="150" height="106"/>
-        <image name="envelopes" width="144" height="92"/>
-        <image name="etrash" width="144" height="115"/>
-        <image name="fluolight" width="95" height="151"/>
+        <image name="eggShells" width="144" height="123"/>
+        <image name="envelopes" width="144" height="95"/>
+        <image name="etrash" width="144" height="102"/>
+        <image name="fluolight" width="72" height="144"/>
         <image name="foil" width="144" height="96"/>
-        <image name="foodWaste" width="146" height="130"/>
-        <image name="fridge" width="144" height="144"/>
-        <image name="leaf" width="150" height="100"/>
-        <image name="mattress" width="144" height="86"/>
-        <image name="milkCarton" width="144" height="172"/>
-        <image name="muffinWraper" width="144" height="144"/>
+        <image name="foodWaste" width="144" height="108"/>
+        <image name="fridge" width="108" height="144"/>
+        <image name="leaf" width="325" height="250"/>
+        <image name="mattress" width="144" height="130"/>
+        <image name="milkCarton" width="144" height="144"/>
+        <image name="muffinWraper" width="144" height="87"/>
         <image name="newspapers" width="144" height="105"/>
-        <image name="oldBulb" width="144" height="256"/>
-        <image name="paintcans" width="80" height="70"/>
-        <image name="paper" width="80" height="79"/>
-        <image name="paperBag" width="144" height="96"/>
-        <image name="paperCup" width="144" height="144"/>
-        <image name="peanuts" width="340" height="102"/>
-        <image name="pizzaBox" width="180" height="128"/>
-        <image name="plasticBottle" width="200" height="200"/>
-        <image name="shampoo" width="144" height="144"/>
-        <image name="shotNeedle" width="144" height="166"/>
+        <image name="oldBulb" width="84" height="144"/>
+        <image name="paintcans" width="101" height="144"/>
+        <image name="paper" width="144" height="97"/>
+        <image name="paperBag" width="110" height="144"/>
+        <image name="paperCup" width="104" height="144"/>
+        <image name="peanuts" width="144" height="96"/>
+        <image name="pizzaBox" width="144" height="100"/>
+        <image name="plasticBottle" width="124" height="144"/>
+        <image name="shampoo" width="61" height="144"/>
+        <image name="shotNeedle" width="144" height="141"/>
         <image name="soda" width="83" height="144"/>
-        <image name="straw" width="144" height="115"/>
+        <image name="straw" width="125" height="167"/>
         <image name="tires" width="120" height="111"/>
-        <image name="toothpick" width="150" height="167"/>
-        <image name="toys" width="150" height="111"/>
-        <image name="tshirt" width="144" height="163"/>
-        <image name="woodenSpoon" width="144" height="144"/>
-        <image name="yogogo" width="130" height="146"/>
+        <image name="toothpick" width="144" height="75"/>
+        <image name="toys" width="144" height="139"/>
+        <image name="tshirt" width="132" height="144"/>
+        <image name="woodenSpoon" width="72" height="144"/>
+        <image name="yogogo" width="144" height="144"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aUh-uM-Cqg"/>
-        <segue reference="9eR-99-abm"/>
-        <segue reference="6YT-88-atI"/>
+        <segue reference="faC-Pd-FhS"/>
+        <segue reference="ewi-D5-cwL"/>
+        <segue reference="HXl-57-NHf"/>
         <segue reference="wjc-lX-Nbs"/>
-        <segue reference="076-xO-xu1"/>
+        <segue reference="lp9-do-Cyr"/>
     </inferredMetricsTieBreakers>
 </document>
