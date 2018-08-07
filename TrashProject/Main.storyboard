@@ -64,6 +64,18 @@
                                     <segue destination="SnQ-H2-kCS" kind="show" id="X3d-Wb-xQA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVl-lB-OOC">
+                                <rect key="frame" x="145" y="582" width="85" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="ABOUT">
+                                    <color key="titleColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="o8x-M6-WjH" kind="show" id="0Jk-UU-J58"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.6790742206" green="0.85735377270000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="vrS-jv-mI7"/>
@@ -481,6 +493,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZCV-nK-1i4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="852" y="792.95352323838085"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="0dl-po-4p7">
+            <objects>
+                <viewController title="About" id="o8x-M6-WjH" customClass="AboutViewController" customModule="TrashProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ysQ-hl-mw1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-fK-soB">
+                                <rect key="frame" x="16" y="20" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <segue destination="0vf-Mu-UEq" kind="show" id="erp-xg-MZ6"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Credits go here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KLW-x2-ldp">
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="FgC-mf-SVn"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="KLW-x2-ldp" id="RwV-G9-6Qf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXn-y9-RPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1732" y="782.15892053973016"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="upf-F3-t9Z">
@@ -1079,6 +1126,6 @@
         <segue reference="ewi-D5-cwL"/>
         <segue reference="HXl-57-NHf"/>
         <segue reference="wjc-lX-Nbs"/>
-        <segue reference="lp9-do-Cyr"/>
+        <segue reference="erp-xg-MZ6"/>
     </inferredMetricsTieBreakers>
 </document>
