@@ -1,23 +1,17 @@
-//
-//  GameScene.swift
-//  TrashProject
-//
-//  Created by Sydrah Al-saegh on 7/23/18.
-//  Copyright © 2018 Sydrah Al-saegh. All rights reserved.
-//
-
 import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene,  SKPhysicsContactDelegate {
     var viewController: GameViewController?
 
-    // Define collision cetegories
-    private let pieceCategory    : UInt32 = 0x1 << 0
-    private let bucketCategory   : UInt32 = 0x1 << 1
-    private let boundaryCategory : UInt32 = 0x1 << 2
+  // Collision categories:
 
-    private var label : SKLabelNode?
+  /// Category for pieces of trash.
+    private let pieceCategory    : UInt32 = 0x1 << 0
+  /// Category for buckets.
+    private let bucketCategory   : UInt32 = 0x1 << 1
+  /// Category for the invisible boundary outside the screen.
+    private let boundaryCategory : UInt32 = 0x1 << 2
 
     private var livesLabel : SKLabelNode!
     private var scoreLabel : SKLabelNode!
@@ -43,8 +37,6 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
 
     private var caughtTrash : SKNode?
 
-    var i : Int = 0
-
     override func didMove(to view: SKView) {
         setupGameWorld()
 
@@ -60,7 +52,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         score = 0
 
 
-        // A wall to the garbage doesnt go past the trash cans.
+        /// A wall so any trash that leaves the screen is deleted.
         let boundaryWall = frame.insetBy(dx:-500, dy:-500)
         self.physicsBody = SKPhysicsBody(edgeLoopFrom:boundaryWall)
         self.physicsBody?.categoryBitMask = boundaryCategory
@@ -97,35 +89,30 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         let x = CGFloat(arc4random_uniform(UInt32(frame.width))) + frame.minX
 
         addPiece(imageName: piece.name,
-                 nodeName: piece.type,
+                 pieceType: piece.type,
                       startingPosition: CGPoint(x:x, y: frame.maxY))
 
     }
 
-
-        //add more types of trash, also add recycling and compost image names, corrosponds to assets/pics
-
-
-
-    //Adds a piece of trash/recycling/compost to scene. Image name is the Asset picture name.
-    // Node name should be "trash" or "recycling" or "compost"
-
-    func addPiece(imageName: String, nodeName: PieceType, startingPosition: CGPoint) {
+    /// Adds a piece of trash/recycling/compost to scene.
+    /// ImageName is the Asset picture name.
+    func addPiece(imageName: String, pieceType: PieceType, startingPosition: CGPoint) {
         let piece = SKSpriteNode(imageNamed: imageName)
-        piece.name = nodeName.rawValue
+        piece.name = pieceType.rawValue
         piece.position = startingPosition
         piece.physicsBody = SKPhysicsBody(texture: piece.texture!,
                                           size: piece.texture!.size())
         piece.physicsBody?.categoryBitMask = pieceCategory
         piece.physicsBody?.contactTestBitMask = pieceCategory | bucketCategory | boundaryCategory
         addChild(piece)
-
+      #if DEBUG
         print("Added \(piece)")
+      #endif
     }
 
 
-    //Bucket name should be "recyclingBucket" "trashBucket" "compostBucket"
-    //Add bucket
+    /// Add bucket
+    /// Bucket name should be "trash", "recycling", or "compost".
     func addBucket(bucketName: String, startingPosition: CGPoint, size: CGPoint) {
         var splinePoints = [CGPoint(x: 0, y: size.y),
                             CGPoint(x: 0.20 * size.x, y: 0),
@@ -167,7 +154,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         addChild(statusLabel)
     }
 
-    // called when drag begins
+    /// called when drag begins
     func touchBegin(atPoint pos : CGPoint) {
         let node = atPoint(pos)
         if node.physicsBody?.categoryBitMask == pieceCategory {
@@ -175,47 +162,47 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         }
     }
 
-    // called when finger moves during drag
+    /// called when finger moves during drag
     func touchMoved(toPoint pos : CGPoint) {
         if let haveCaughtTrash = caughtTrash {
             haveCaughtTrash.position = pos
         }
     }
 
-    // called when drag ends
+    /// called when drag ends
     func touchEnd(atPoint pos : CGPoint) {
         caughtTrash = nil
     }
 
-    // called by system when drag begins
+    /// called by system when drag begins
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchBegin(atPoint:touch.location(in: self))
         }
     }
 
-    // called by system when drag moves
+    /// called by system when drag moves
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchMoved(toPoint:touch.location(in: self))
         }
     }
 
-    // called by system when drag ends
+    /// called by system when drag ends
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchEnd(atPoint:touch.location(in: self))
         }
     }
 
-    // called by system when drag is cancelled like when a phone call is recived
+    /// called by system when drag is cancelled like when a phone call is recived
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             touchEnd(atPoint:touch.location(in: self))
         }
     }
 
-    // collision handler
+    /// collision handler
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
@@ -271,12 +258,4 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         }
     }
 
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
-
-
 }
-
-
-
