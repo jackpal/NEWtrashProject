@@ -1,20 +1,11 @@
-//
-//  GameViewController.swift
-//  TrashProject
-//
-//  Created by Sydrah Al-saegh on 7/23/18.
-//  Copyright © 2018 Sydrah Al-saegh. All rights reserved.
-//
-//heeeeyyyy
-import UIKit
 import SpriteKit
-import GameplayKit
+import UIKit
 
+// The view controller for the game view.
 class GameViewController: UIViewController {
     
     var score: Int = 0
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,28 +21,20 @@ class GameViewController: UIViewController {
             }
             
             view.ignoresSiblingOrder = true
-            
+
+#if DEBUG
             view.showsFPS = true
             view.showsNodeCount = true
+#endif
         }
-        
-    }
-
-    override var shouldAutorotate: Bool {
-        return true
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
+            return .portrait
         } else {
-            return .all
+            return [.portrait, .portraitUpsideDown]
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
 
     override var prefersStatusBarHidden: Bool {

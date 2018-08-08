@@ -1,11 +1,3 @@
-//
-//  AboutViewController.swift
-//  TrashProject
-//
-//  Created by Jack Palevich on 8/6/18.
-//  Copyright © 2018 Sydrah Al-saegh. All rights reserved.
-//
-
 import UIKit
 
 
@@ -28,16 +20,5 @@ class AboutViewController: UIViewController {
             }
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  
 }
