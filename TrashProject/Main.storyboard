@@ -318,15 +318,24 @@
                                     <segue destination="0vf-Mu-UEq" kind="show" id="erp-xg-MZ6"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="tiT-H8-xmY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Credits go here." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KLW-x2-ldp">
                                 <rect key="frame" x="0.0" y="58" width="375" height="609"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tiT-H8-xmY" firstAttribute="top" secondItem="FgC-mf-SVn" secondAttribute="top" id="0ws-B4-wLr"/>
+                            <constraint firstItem="tiT-H8-xmY" firstAttribute="leading" secondItem="FgC-mf-SVn" secondAttribute="leading" id="3On-qR-Dv3"/>
+                            <constraint firstItem="tiT-H8-xmY" firstAttribute="trailing" secondItem="FgC-mf-SVn" secondAttribute="trailing" id="Xzf-FM-wh7"/>
+                            <constraint firstItem="tiT-H8-xmY" firstAttribute="bottom" secondItem="FgC-mf-SVn" secondAttribute="bottom" id="lEa-93-qog"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FgC-mf-SVn"/>
                     </view>
                     <connections>
@@ -335,14 +344,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXn-y9-RPE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="54"/>
+            <point key="canvasLocation" x="852" y="53.523238380809602"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background" width="640" height="960"/>
         <image name="clouds" width="637" height="720"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IhP-fw-Lbx"/>
+        <segue reference="wjc-lX-Nbs"/>
         <segue reference="erp-xg-MZ6"/>
     </inferredMetricsTieBreakers>
 </document>
