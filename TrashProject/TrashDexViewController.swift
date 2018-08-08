@@ -1,11 +1,3 @@
-//
-//  TrashDexViewController.swift
-//  TrashProject
-//
-//  Created by Jack Palevich on 8/5/18.
-//  Copyright © 2018 Sydrah Al-saegh. All rights reserved.
-//
-
 import UIKit
 
 class TrashDexViewController: UIViewController {
@@ -23,30 +15,10 @@ class TrashDexViewController: UIViewController {
         }
 
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-struct TrashEntry {
-  var imageResource: String
-  var labelText: String
 }
 
 extension TrashDexViewController: UICollectionViewDataSource {
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
-  }
-
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return allPieces.count
   }
