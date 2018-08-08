@@ -63,7 +63,7 @@ let allPieces = [
   Piece(name: "paper", type:.recycling, description: "Paper is recyclable."),
   Piece(name: "paperBag", type:.recycling, description: "Paper bags are recyclable."),
   Piece(name: "milkCarton", type:.recycling, description: ""),
-  Piece(name: "Yogogo", type:.recycling, description: "Yogurt containers are recyclable."),
+  Piece(name: "yogogo", type:.recycling, description: "Yogurt containers are recyclable."),
   Piece(name: "battery", type:.recycling, description: "Milk cartons are recyclable."),
   Piece(name: "soda", type:.recycling, description: "Soda cans are recyclable."),
   Piece(name: "shampoo", type:.recycling, description: "Shampoo and detergent bottles are recyclable."),
