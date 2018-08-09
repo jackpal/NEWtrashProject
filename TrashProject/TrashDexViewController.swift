@@ -26,11 +26,27 @@ extension TrashDexViewController: UICollectionViewDataSource {
     return pieceIndex[section].count
   }
 
+  func collectionView(_ collectionView: UICollectionView,
+                               viewForSupplementaryElementOfKind kind: String,
+                               at indexPath: IndexPath) -> UICollectionReusableView {
+    switch kind {
+    case UICollectionElementKindSectionHeader:
+      let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                       withReuseIdentifier: "SectionHeader",
+                                                                       for: indexPath) as! TrashDexHeaderReusableView
+      headerView.label.text = ["Trash", "Recycling", "Compost"][indexPath.section]
+      return headerView
+    default:
+      assert(false, "Unexpected element kind")
+    }
+  }
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCell", for: indexPath) as! TrashDexCollectionViewCell
     let piece = pieceIndex[indexPath.section][indexPath.row]
     cell.imageView.image = UIImage(named:piece.name)
     cell.textLabel.text = piece.description
+    cell.textLabel.sizeToFit()
     return cell
   }
 }

@@ -13,6 +13,7 @@
 		369CECC92117FFC80009359A /* Pieces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CECC82117FFC80009359A /* Pieces.swift */; };
 		369CECCB2119278C0009359A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CECCA2119278C0009359A /* AboutViewController.swift */; };
 		369CECCF21192FF00009359A /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 369CECCE21192FF00009359A /* About.html */; };
+		36A9EC93211C027300327B3C /* TrashDexHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A9EC92211C027300327B3C /* TrashDexHeaderReusableView.swift */; };
 		4F05E1ED210987CC004D00FD /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F05E1EC210987CC004D00FD /* ScoreViewController.swift */; };
 		9BDBDE1621064D69002125F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDBDE1521064D69002125F3 /* AppDelegate.swift */; };
 		9BDBDE1821064D69002125F3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9BDBDE1721064D69002125F3 /* GameScene.sks */; };
@@ -30,6 +31,7 @@
 		369CECC82117FFC80009359A /* Pieces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pieces.swift; sourceTree = "<group>"; };
 		369CECCA2119278C0009359A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		369CECCE21192FF00009359A /* About.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = About.html; sourceTree = "<group>"; };
+		36A9EC92211C027300327B3C /* TrashDexHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashDexHeaderReusableView.swift; sourceTree = "<group>"; };
 		4F05E1EC210987CC004D00FD /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		9BDBDE1221064D69002125F3 /* TrashProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrashProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BDBDE1521064D69002125F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				9BDBDE2721064D6A002125F3 /* Info.plist */,
 				369CECC22117F8610009359A /* TrashDexViewController.swift */,
 				369CECC42117F8D00009359A /* TrashDexCollectionViewCell.swift */,
+				36A9EC92211C027300327B3C /* TrashDexHeaderReusableView.swift */,
 				369CECC82117FFC80009359A /* Pieces.swift */,
 				369CECCA2119278C0009359A /* AboutViewController.swift */,
 				369CECCE21192FF00009359A /* About.html */,
@@ -170,6 +173,7 @@
 				9BDBDE1621064D69002125F3 /* AppDelegate.swift in Sources */,
 				369CECC32117F8610009359A /* TrashDexViewController.swift in Sources */,
 				369CECC52117F8D00009359A /* TrashDexCollectionViewCell.swift in Sources */,
+				36A9EC93211C027300327B3C /* TrashDexHeaderReusableView.swift in Sources */,
 				369CECC92117FFC80009359A /* Pieces.swift in Sources */,
 				369CECCB2119278C0009359A /* AboutViewController.swift in Sources */,
 				4F05E1ED210987CC004D00FD /* ScoreViewController.swift in Sources */,
