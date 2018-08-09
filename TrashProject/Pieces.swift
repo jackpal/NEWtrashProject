@@ -79,4 +79,5 @@ let allPieces = [
   Piece(name: "muffinWraper", type:.compost, description: "Muffin wrappers are compostable."),
   Piece(name: "peanuts", type:.compost, description: "Peanut shells are compostable."),
   Piece(name: "toothpick", type:.compost, description: "Toothpicks are compostable."),
-  Piece(name: "pizzaBox", type:.compost, description: "Pizza boxes with grease go in the compost."),    ]
+  Piece(name: "pizzaBox", type:.compost, description: "Pizza boxes with grease go in the compost."),
+]

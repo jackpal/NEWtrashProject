@@ -2,7 +2,7 @@ import SpriteKit
 import UIKit
 
 // The view controller for the game view.
-class GameViewController: UIViewController {
+class GameViewController: PortraitOnlyViewController {
     
     var score: Int = 0
 
@@ -26,14 +26,6 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
 #endif
-        }
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .portrait
-        } else {
-            return [.portrait, .portraitUpsideDown]
         }
     }
 

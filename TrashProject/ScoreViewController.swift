@@ -4,7 +4,7 @@ import UIKit
 let highScoreKey = "highScore"
 
 /// View controller for Score page.
-class ScoreViewController: UIViewController {
+class ScoreViewController: PortraitOnlyViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var highScoreLabel: UILabel!

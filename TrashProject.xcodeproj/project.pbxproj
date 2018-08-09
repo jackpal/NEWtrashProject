@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3643849F211BEA130060499F /* PortraitOnlyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3643849E211BEA130060499F /* PortraitOnlyViewController.swift */; };
 		369CECC32117F8610009359A /* TrashDexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CECC22117F8610009359A /* TrashDexViewController.swift */; };
 		369CECC52117F8D00009359A /* TrashDexCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CECC42117F8D00009359A /* TrashDexCollectionViewCell.swift */; };
 		369CECC92117FFC80009359A /* Pieces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CECC82117FFC80009359A /* Pieces.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3643849E211BEA130060499F /* PortraitOnlyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitOnlyViewController.swift; sourceTree = "<group>"; };
 		369CECC22117F8610009359A /* TrashDexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashDexViewController.swift; sourceTree = "<group>"; };
 		369CECC42117F8D00009359A /* TrashDexCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashDexCollectionViewCell.swift; sourceTree = "<group>"; };
 		369CECC82117FFC80009359A /* Pieces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pieces.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				369CECC82117FFC80009359A /* Pieces.swift */,
 				369CECCA2119278C0009359A /* AboutViewController.swift */,
 				369CECCE21192FF00009359A /* About.html */,
+				3643849E211BEA130060499F /* PortraitOnlyViewController.swift */,
 			);
 			path = TrashProject;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3643849F211BEA130060499F /* PortraitOnlyViewController.swift in Sources */,
 				9BDBDE1C21064D69002125F3 /* GameScene.swift in Sources */,
 				9BDBDE1E21064D69002125F3 /* GameViewController.swift in Sources */,
 				9BDBDE1621064D69002125F3 /* AppDelegate.swift in Sources */,

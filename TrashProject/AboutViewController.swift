@@ -1,7 +1,7 @@
 import UIKit
 
 
-class AboutViewController: UIViewController {
+class AboutViewController: PortraitOnlyViewController {
 
   @IBOutlet weak var textView: UITextView!
   override func viewDidLoad() {
