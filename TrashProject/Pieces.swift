@@ -41,7 +41,7 @@ let allPieces = [
   Piece(name: "woodenSpoon", type:.trash, description: "Wood cannot be recycled, especially when furnished."),
   Piece(name: "toys", type:.trash, description: "Toys made from industrial plastic are not recyclable."),
   Piece(name: "tshirt", type:.trash, description: "Clothes can be repurposed or donated to good will."),
-  Piece(name: "foil", type:.recycling, description: "Aluminum foil is not recylable. It gets caught in the machines, and therefor should go in the trash."),
+  Piece(name: "foil", type:.trash, description: "Aluminum foil is not recylable. It gets caught in the machines, and therefor should go in the trash."),
 
 
   // Recycling
@@ -79,4 +79,5 @@ let allPieces = [
   Piece(name: "muffinWraper", type:.compost, description: "Muffin wrappers are compostable."),
   Piece(name: "peanuts", type:.compost, description: "Peanut shells are compostable."),
   Piece(name: "toothpick", type:.compost, description: "Toothpicks are compostable."),
-  Piece(name: "pizzaBox", type:.compost, description: "Pizza boxes with grease go in the compost."),    ]
+  Piece(name: "pizzaBox", type:.compost, description: "Pizza boxes with grease go in the compost."),
+]
