@@ -1,6 +1,6 @@
 import UIKit
 
-class TrashDexViewController: UIViewController {
+class TrashDexViewController: PortraitOnlyViewController {
 
   @IBOutlet weak var collectionView: UICollectionView!
 
