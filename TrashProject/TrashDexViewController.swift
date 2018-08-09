@@ -45,15 +45,22 @@ extension TrashDexViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCell", for: indexPath) as! TrashDexCollectionViewCell
     let piece = pieceIndex[indexPath.section][indexPath.row]
     cell.imageView.image = UIImage(named:piece.name)
-    cell.textLabel.text = piece.description
-    cell.textLabel.sizeToFit()
+    cell.textView.text = piece.description
     return cell
   }
+
 }
 
-extension TrashDexViewController: UICollectionViewDelegate {
+extension TrashDexViewController: UICollectionViewDelegateFlowLayout {
 
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    print(indexPath.item + 1)
+  func collectionView(_ collectionView: UICollectionView,
+                      layout collectionViewLayout: UICollectionViewLayout,
+                      sizeForItemAt indexPath: IndexPath) -> CGSize {
+    // Make cells half width, with some padding
+    let padding: CGFloat = 16
+    let collectionViewCellWidth = (collectionView.frame.size.width - padding)/2
+
+    return CGSize(width: collectionViewCellWidth, height: 120)
   }
+
 }
