@@ -34,14 +34,14 @@ struct Piece {
 let trashPieces = [
   Piece(name: "candyWrapper", type:.trash, description: "Candy wrappers should be thrown in the trash."),
   Piece(name: "diapers", type:.trash, description: "Diapers should be thrown in the trash."),
-  Piece(name: "foil", type:.trash, description: "Aluminum foil is not recylable. It gets caught in the machines, and therefor should go in the trash."),
+  Piece(name: "foil", type:.trash, description: "Aluminum foil is not recylable. It gets caught in the machines, and therefore should go in the trash."),
   Piece(name: "oldBulb", type:.trash, description: "Old incandecent lightbulbs should be thrown in the trash."),
   Piece(name: "paperCup", type:.trash, description: "Styrofoam cups should be thrown away."),
   Piece(name: "shotNeedle", type:.trash, description: "Sharps should be handled with care, wrapped, and thrown in the trash."),
   Piece(name: "straw", type:.trash, description: "Straws go in the trash."),
   Piece(name: "toys", type:.trash, description: "Toys made from industrial plastic are not recyclable."),
   Piece(name: "tshirt", type:.trash, description: "Clothes can be repurposed or donated to good will."),
-  Piece(name: "woodenSpoon", type:.trash, description: "Wood cannot be recycled, especially when furnished."),
+  Piece(name: "woodenSpoon", type:.trash, description: "Wood cannot be recycled, especially when finished."),
 ]
 
 let recyclingPieces = [
@@ -56,7 +56,6 @@ let recyclingPieces = [
   Piece(name: "envelopes", type:.recycling, description: "Drink cups made of paper are recyclable."),
   Piece(name: "etrash", type:.recycling, description: "Electronic trash is recyclable."),
   Piece(name: "fluolight", type:.recycling, description: "Flourecent lightbulbs can be recycled."),
-  Piece(name: "foil", type:.trash, description: "Aluminum foil is not recylable. It gets caught in the machines."),
   Piece(name: "fridge", type:.recycling, description: "Refrigeraters should be recycled."),
   Piece(name: "mattress", type:.recycling, description: "Matresses can be recyled."),
   Piece(name: "milkCarton", type:.recycling, description: ""),
@@ -66,7 +65,7 @@ let recyclingPieces = [
   Piece(name: "plasticBottle", type:.recycling, description: "Plastic bottles are recyclable but take the cap off before doing so."),
   Piece(name: "shampoo", type:.recycling, description: "Shampoo and detergent bottles are recyclable."),
   Piece(name: "soda", type:.recycling, description: "Soda cans are recyclable."),
-  Piece(name: "yogogo", type:.recycling, description: "Yogurt containers are recyclable."),
+  Piece(name: "Yogogo", type:.recycling, description: "Yogurt containers are recyclable."),
 ]
 
 let compostPieces = [
