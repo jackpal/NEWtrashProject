@@ -4,17 +4,22 @@ import GameplayKit
 class GameScene: SKScene,  SKPhysicsContactDelegate {
     var viewController: GameViewController?
 
-  // Collision categories:
+  /// Collision categories:
+  enum Category : UInt32 {
+    /// Category for pieces of trash.
+    case piece = 1
+    /// Category for bucket bottom. Pieces that hit this are scored.
+    case bucketBottom = 2
+    /// Category for bucket side. Pieces that hit this bounce.
+    case bucketSide = 4
+    /// Category for the invisible boundary outside the screen.
+    case boundary = 8
+  }
 
-  /// Category for pieces of trash.
-    private let pieceCategory    : UInt32 = 0x1 << 0
-  /// Category for buckets.
-    private let bucketCategory   : UInt32 = 0x1 << 1
-  /// Category for the invisible boundary outside the screen.
-    private let boundaryCategory : UInt32 = 0x1 << 2
-
-    private let goodChoiceSound = SKAction.playSoundFileNamed("bing.wav", waitForCompletion: false)
-    private let badChoiceSound = SKAction.playSoundFileNamed("doh.wav", waitForCompletion: false)
+    /// Sound that plays when a good choice is made.
+    private let goodChoiceSound = SKAction.playSoundFileNamed("bing.wav", waitForCompletion: true)
+    /// Sound that plays when a bad choice is made.
+    private let badChoiceSound = SKAction.playSoundFileNamed("doh.wav", waitForCompletion: true)
 
     private var livesLabel : SKLabelNode!
     private var scoreLabel : SKLabelNode!
@@ -58,7 +63,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         /// A wall so any trash that leaves the screen is deleted.
         let boundaryWall = frame.insetBy(dx:-500, dy:-500)
         self.physicsBody = SKPhysicsBody(edgeLoopFrom:boundaryWall)
-        self.physicsBody?.categoryBitMask = boundaryCategory
+        self.physicsBody?.categoryBitMask = Category.boundary.rawValue
 
         // Set self as the contact delegate. didBegin will be called when collisions occur.
         physicsWorld.contactDelegate = self
@@ -66,11 +71,11 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         // Slow down gravity
         physicsWorld.gravity = CGVector(dx: 0, dy: -1.5)
 
-
         //Adds three buckets
-        addBucket(bucketName: "trash", startingPosition: CGPoint(x: -355, y: -600), size: CGPoint(x: 235, y: 300))
-        addBucket(bucketName: "recycling", startingPosition: CGPoint(x: -120, y: -600), size: CGPoint(x: 235, y: 300))
-        addBucket(bucketName: "compost", startingPosition: CGPoint(x: 115, y: -600), size: CGPoint(x: 235, y: 300))
+        let bucketSize = CGSize(width: 235, height: 300)
+        addBucket(bucketName: "trash", startingPosition: CGPoint(x: -355, y: -600), size: bucketSize)
+        addBucket(bucketName: "recycling", startingPosition: CGPoint(x: -120, y: -600), size: bucketSize)
+        addBucket(bucketName: "compost", startingPosition: CGPoint(x: 115, y: -600), size: bucketSize)
     }
 
     func startDroppingPieces() {
@@ -105,8 +110,9 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         piece.position = startingPosition
         piece.physicsBody = SKPhysicsBody(texture: piece.texture!,
                                           size: piece.texture!.size())
-        piece.physicsBody?.categoryBitMask = pieceCategory
-        piece.physicsBody?.contactTestBitMask = pieceCategory | bucketCategory | boundaryCategory
+        piece.physicsBody?.categoryBitMask = Category.piece.rawValue
+        piece.physicsBody?.contactTestBitMask =
+            Category.piece.rawValue | Category.bucketBottom.rawValue | Category.boundary.rawValue
         addChild(piece)
       #if DEBUG
         print("Added \(piece)")
@@ -116,11 +122,11 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
 
     /// Add bucket
     /// Bucket name should be "trash", "recycling", or "compost".
-    func addBucket(bucketName: String, startingPosition: CGPoint, size: CGPoint) {
-        var splinePoints = [CGPoint(x: 0, y: size.y),
-                            CGPoint(x: 0.20 * size.x, y: 0),
-                            CGPoint(x: 0.80 * size.x, y: 0),
-                            CGPoint(x: size.x, y: size.y)]
+    func addBucket(bucketName: String, startingPosition: CGPoint, size: CGSize) {
+        var splinePoints = [CGPoint(x: 0, y: size.height),
+                            CGPoint(x: 0.20 * size.width, y: 0),
+                            CGPoint(x: 0.80 * size.width, y: 0),
+                            CGPoint(x: size.width, y: size.height)]
         let bucket = SKShapeNode(splinePoints: &splinePoints,
                                  count: splinePoints.count)
         bucket.name = bucketName
@@ -130,8 +136,17 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         bucket.physicsBody = SKPhysicsBody(edgeChainFrom: bucket.path!)
         bucket.physicsBody?.restitution = 0.25
         bucket.physicsBody?.isDynamic = false
-        bucket.physicsBody?.categoryBitMask = bucketCategory
+        bucket.physicsBody?.categoryBitMask = Category.bucketSide.rawValue
         addChild(bucket)
+
+
+      let bucketBottom = SKNode()
+      bucketBottom.name = bucketName
+      bucketBottom.position = startingPosition
+      bucketBottom.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:size.width, height: 0.05 * size.height))
+      bucketBottom.physicsBody?.isDynamic = false
+      bucketBottom.physicsBody?.categoryBitMask = Category.bucketBottom.rawValue
+      addChild(bucketBottom)
     }
 
     func setupLabels() {
@@ -160,7 +175,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
     /// called when drag begins
     func touchBegin(atPoint pos : CGPoint) {
         let node = atPoint(pos)
-        if node.physicsBody?.categoryBitMask == pieceCategory {
+        if node.physicsBody?.categoryBitMask == Category.piece.rawValue {
             caughtTrash = node
         }
     }
@@ -222,9 +237,9 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
             return
         }
         //if a piece hits a bucket, it will disapear.
-        if firstBody.categoryBitMask == pieceCategory {
+        if firstBody.categoryBitMask == Category.piece.rawValue {
             switch (secondBody.categoryBitMask) {
-            case bucketCategory:
+            case Category.bucketBottom.rawValue:
                 let pieceName = firstBody.node!.name!
                 let bucketName = secondBody.node!.name!
 
@@ -232,7 +247,6 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
                     score += 1 //adding one point
                     status = "Correct"
                     statusLabel.fontColor = .green
-                    print("score", firstBody, score)
                     removeBody(body: firstBody)
                     run(goodChoiceSound)
                 } else {
@@ -241,14 +255,17 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
                         lives -= 1 //subtracting one point
                         status = "Incorrect"
                         statusLabel.fontColor = .red
-                        run(badChoiceSound)
                         if lives == 0 {
-                            self.view?.isPaused = true
-                            self.viewController!.gameEnded(score:self.score)
+                            run(badChoiceSound) {
+                                self.view?.isPaused = true
+                                self.viewController!.gameEnded(score:self.score)
+                            }
+                        } else {
+                            run(badChoiceSound)
                         }
                     }
                 }
-            case boundaryCategory:
+            case Category.boundary.rawValue:
                 // Object has fallen off the the edge of the screen.
                 removeBody(body: firstBody)
             default:
