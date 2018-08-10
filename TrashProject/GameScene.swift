@@ -59,7 +59,6 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         lives = 3
         score = 0
 
-
         /// A wall so any trash that leaves the screen is deleted.
         let boundaryWall = frame.insetBy(dx:-500, dy:-500)
         self.physicsBody = SKPhysicsBody(edgeLoopFrom:boundaryWall)
@@ -142,8 +141,8 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
 
       let bucketBottom = SKNode()
       bucketBottom.name = bucketName
-      bucketBottom.position = startingPosition
-      bucketBottom.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:size.width, height: 0.05 * size.height))
+      bucketBottom.position = CGPoint(x:startingPosition.x + size.width * 0.3, y: startingPosition.y)
+      bucketBottom.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:size.width * 0.4, height: 0.05 * size.height))
       bucketBottom.physicsBody?.isDynamic = false
       bucketBottom.physicsBody?.categoryBitMask = Category.bucketBottom.rawValue
       addChild(bucketBottom)
@@ -242,7 +241,9 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
             case Category.bucketBottom.rawValue:
                 let pieceName = firstBody.node!.name!
                 let bucketName = secondBody.node!.name!
-
+                #if DEBUG
+                print("\(pieceName) hit \(bucketName)")
+                #endif
                 if pieceName == bucketName {
                     score += 1 //adding one point
                     status = "Correct"
