@@ -143,7 +143,7 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
       let bucketBottom = SKNode()
       bucketBottom.name = bucketName
       bucketBottom.position = CGPoint(x: startingPosition.x + size.width * 0.5,
-                                      y: startingPosition.y - size.height * 0.6)
+                                      y: startingPosition.y - size.height * 0.5)
       bucketBottom.physicsBody = SKPhysicsBody(rectangleOf: size)
       bucketBottom.physicsBody?.isDynamic = false
       bucketBottom.physicsBody?.categoryBitMask = Category.bucketBottom.rawValue
