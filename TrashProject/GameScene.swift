@@ -92,8 +92,9 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         // Pick a random piece
         let piece = allPieces[Int(arc4random_uniform(UInt32(allPieces.count)))]
 
+        let margin : CGFloat = 50
         // Picks a random number between frame.minX and frame.maxX
-        let x = CGFloat(arc4random_uniform(UInt32(frame.width))) + frame.minX
+        let x = CGFloat(arc4random_uniform(UInt32(frame.width-margin))) + frame.minX + margin / 2
 
         addPiece(imageName: piece.name,
                  pieceType: piece.type,
@@ -141,7 +142,8 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
       // The bucket bottom is an invisible node that overlaps the bottom of the bucket.
       let bucketBottom = SKNode()
       bucketBottom.name = bucketName
-      bucketBottom.position = CGPoint(x:startingPosition.x, y: startingPosition.y - size.height * 0.5)
+      bucketBottom.position = CGPoint(x: startingPosition.x + size.width * 0.5,
+                                      y: startingPosition.y - size.height * 0.6)
       bucketBottom.physicsBody = SKPhysicsBody(rectangleOf: size)
       bucketBottom.physicsBody?.isDynamic = false
       bucketBottom.physicsBody?.categoryBitMask = Category.bucketBottom.rawValue
