@@ -13,6 +13,9 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
   /// Category for the invisible boundary outside the screen.
     private let boundaryCategory : UInt32 = 0x1 << 2
 
+    private let goodChoiceSound = SKAction.playSoundFileNamed("bing.wav", waitForCompletion: false)
+    private let badChoiceSound = SKAction.playSoundFileNamed("doh.wav", waitForCompletion: false)
+
     private var livesLabel : SKLabelNode!
     private var scoreLabel : SKLabelNode!
     private var statusLabel : SKLabelNode!
@@ -231,15 +234,18 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
                     statusLabel.fontColor = .green
                     print("score", firstBody, score)
                     removeBody(body: firstBody)
+                    run(goodChoiceSound)
                 } else {
-                    lives -= 1 //subtracting one point
-                    status = "Incorrect"
-                    statusLabel.fontColor = .red
-                    print("lives", firstBody, lives)
                     removeBody(body: firstBody)
-                    if lives == 0 {
-                        self.view?.isPaused = true
-                        viewController!.gameEnded(score:score)
+                    if lives > 0 {
+                        lives -= 1 //subtracting one point
+                        status = "Incorrect"
+                        statusLabel.fontColor = .red
+                        run(badChoiceSound)
+                        if lives == 0 {
+                            self.view?.isPaused = true
+                            self.viewController!.gameEnded(score:self.score)
+                        }
                     }
                 }
             case boundaryCategory:
