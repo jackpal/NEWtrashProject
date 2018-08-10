@@ -138,11 +138,11 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         bucket.physicsBody?.categoryBitMask = Category.bucketSide.rawValue
         addChild(bucket)
 
-
+      // The bucket bottom is an invisible node that overlaps the bottom of the bucket.
       let bucketBottom = SKNode()
       bucketBottom.name = bucketName
-      bucketBottom.position = CGPoint(x:startingPosition.x + size.width * 0.3, y: startingPosition.y)
-      bucketBottom.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width:size.width * 0.4, height: 0.05 * size.height))
+      bucketBottom.position = CGPoint(x:startingPosition.x, y: startingPosition.y - size.height * 0.5)
+      bucketBottom.physicsBody = SKPhysicsBody(rectangleOf: size)
       bucketBottom.physicsBody?.isDynamic = false
       bucketBottom.physicsBody?.categoryBitMask = Category.bucketBottom.rawValue
       addChild(bucketBottom)

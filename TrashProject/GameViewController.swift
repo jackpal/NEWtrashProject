@@ -13,9 +13,9 @@ class GameViewController: PortraitOnlyViewController {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "GameScene") {
                 (scene as! GameScene).viewController = self
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
+                // Set the scale mode to scale to fit the window.
+                scene.scaleMode = .aspectFit
+
                 // Present the scene
                 view.presentScene(scene)
             }
@@ -28,6 +28,21 @@ class GameViewController: PortraitOnlyViewController {
 #endif
         }
     }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+
+    // Widen view if needed, to avoid pillboxing on wider devices like iPads.
+    let skView = self.view as! SKView
+    if let scene = skView.scene {
+      var size = scene.size
+      let newWidth = view.bounds.size.width / view.bounds.height * size.height
+      if newWidth > size.width {
+        size.width = newWidth
+        scene.size = size
+      }
+    }
+  }
 
     override var prefersStatusBarHidden: Bool {
         return true
