@@ -241,11 +241,10 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
                         lives -= 1 //subtracting one point
                         status = "Incorrect"
                         statusLabel.fontColor = .red
+                        run(badChoiceSound)
                         if lives == 0 {
                             self.view?.isPaused = true
                             self.viewController!.gameEnded(score:self.score)
-                        } else {
-                            run(badChoiceSound)
                         }
                     }
                 }
