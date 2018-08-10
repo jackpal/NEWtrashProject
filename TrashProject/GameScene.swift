@@ -257,29 +257,33 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
                     removeBody(body: firstBody)
                     run(goodChoiceSound)
                 } else {
-                    removeBody(body: firstBody)
-                    if lives > 0 {
-                        lives -= 1 //subtracting one point
-                        status = "Incorrect"
-                        statusLabel.fontColor = .red
-                        if lives == 0 {
-                            run(badChoiceSound) {
-                                self.view?.isPaused = true
-                                self.viewController!.gameEnded(score:self.score)
-                            }
-                        } else {
-                            run(badChoiceSound)
-                        }
-                    }
+                  handleLoss(body: firstBody, message: "Incorrect")
                 }
             case Category.boundary.rawValue:
                 // Object has fallen off the the edge of the screen.
-                removeBody(body: firstBody)
+                handleLoss(body: firstBody, message: "Missed")
             default:
                 break
             }
         }
     }
+
+  func handleLoss(body: SKPhysicsBody, message: String) {
+    removeBody(body: body)
+    if lives > 0 {
+      lives -= 1 //subtracting one point
+      status = message
+      statusLabel.fontColor = .red
+      if lives == 0 {
+        run(badChoiceSound) {
+          self.view?.isPaused = true
+          self.viewController!.gameEnded(score:self.score)
+        }
+      } else {
+        run(badChoiceSound)
+      }
+    }
+  }
 
     func removeBody(body: SKPhysicsBody) {
         if let node = body.node {
