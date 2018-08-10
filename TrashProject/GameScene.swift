@@ -96,18 +96,22 @@ class GameScene: SKScene,  SKPhysicsContactDelegate {
         // Picks a random number between frame.minX and frame.maxX
         let x = CGFloat(arc4random_uniform(UInt32(frame.width-margin))) + frame.minX + margin / 2
 
+        let zRotation = CGFloat(arc4random_uniform(360)) * .pi * 2 / 360
         addPiece(imageName: piece.name,
                  pieceType: piece.type,
-                      startingPosition: CGPoint(x:x, y: frame.maxY))
+                 startingPosition: CGPoint(x:x, y: frame.maxY),
+                 zRotation: zRotation)
 
     }
 
     /// Adds a piece of trash/recycling/compost to scene.
     /// ImageName is the Asset picture name.
-    func addPiece(imageName: String, pieceType: PieceType, startingPosition: CGPoint) {
+  func addPiece(imageName: String, pieceType: PieceType, startingPosition: CGPoint,
+                zRotation: CGFloat) {
         let piece = SKSpriteNode(imageNamed: imageName)
         piece.name = pieceType.rawValue
         piece.position = startingPosition
+        piece.zRotation = zRotation
         piece.physicsBody = SKPhysicsBody(texture: piece.texture!,
                                           size: piece.texture!.size())
         piece.physicsBody?.categoryBitMask = Category.piece.rawValue
