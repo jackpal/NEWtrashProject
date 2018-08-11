@@ -37,7 +37,7 @@ extension TrashDexViewController: UICollectionViewDataSource {
       headerView.label.text = ["Trash", "Recycling", "Compost"][indexPath.section]
       return headerView
     default:
-      assert(false, "Unexpected element kind")
+      fatalError("Unexpected element kind \(kind)")
     }
   }
 
