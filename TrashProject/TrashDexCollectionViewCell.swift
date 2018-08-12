@@ -2,12 +2,12 @@ import UIKit
 
 class TrashDexCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var imageView: UIImageView!
-  @IBOutlet weak var textLabel: UILabel!
+  @IBOutlet weak var textView: UITextView!
 
   override func prepareForReuse() {
     super.prepareForReuse()
 
-    self.textLabel.text = nil
+    self.textView.text = nil
     self.imageView.image = nil
   }
 }
