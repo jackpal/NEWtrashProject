@@ -34,7 +34,6 @@ struct Piece {
 let trashPieces = [
   Piece(name: "candyWrapper", type:.trash, description: "Candy wrappers should be thrown in the trash."),
   Piece(name: "diapers", type:.trash, description: "Diapers should be thrown in the trash."),
-  Piece(name: "foil", type:.trash, description: "Aluminum foil is not recylable. It gets caught in the machines, and therefore should go in the trash."),
   Piece(name: "oldBulb", type:.trash, description: "Old incandecent lightbulbs should be thrown in the trash."),
   Piece(name: "paperCup", type:.trash, description: "Styrofoam cups should be thrown away."),
   Piece(name: "shotNeedle", type:.trash, description: "Needles should be handled with care, wrapped, and thrown in the trash."),
@@ -70,6 +69,7 @@ let recyclingPieces = [
   Piece(name: "plasticBottle", type:.recycling, description: "Plastic bottles are recyclable but take the cap off before doing so."),
   Piece(name: "shampoo", type:.recycling, description: "Shampoo and detergent bottles are recyclable."),
   Piece(name: "soda", type:.recycling, description: "Soda cans are recyclable."),
+  Piece(name: "foil", type:.recycling, description: "Aluminum foil is recylable. However, if it has food on it, it will get` caught in the machines, and should be washed before being recycled."),
   Piece(name: "Yogogo", type:.recycling, description: "Yogurt containers are recyclable."),
 ]
 
