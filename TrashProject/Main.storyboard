@@ -241,7 +241,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vQi-uj-0d6">
-                                <rect key="frame" x="0.0" y="79" width="768" height="945"/>
+                                <rect key="frame" x="20" y="50" width="728" height="974"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gkt-5d-6l5">
                                     <size key="itemSize" width="374" height="111"/>
@@ -251,7 +251,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrashCell" id="R5Q-Ls-afA" customClass="TrashDexCollectionViewCell" customModule="TrashProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="374" height="111"/>
+                                        <rect key="frame" x="177" y="66" width="374" height="111"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="111"/>
@@ -289,11 +289,11 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="6oD-Uf-Rtp" customClass="TrashDexHeaderReusableView" customModule="TrashProject" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="66"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="728" height="66"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VxK-et-WjX">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="66"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -320,10 +320,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vQi-uj-0d6" firstAttribute="top" secondItem="Igf-IY-BPj" secondAttribute="bottom" constant="29" id="Q8d-Fm-IMI"/>
-                            <constraint firstItem="vQi-uj-0d6" firstAttribute="leading" secondItem="NWm-Zi-IXC" secondAttribute="leading" id="eEf-Wg-s1b"/>
+                            <constraint firstItem="vQi-uj-0d6" firstAttribute="top" secondItem="Igf-IY-BPj" secondAttribute="bottom" id="Q8d-Fm-IMI"/>
+                            <constraint firstItem="vQi-uj-0d6" firstAttribute="leading" secondItem="NWm-Zi-IXC" secondAttribute="leadingMargin" id="eEf-Wg-s1b"/>
                             <constraint firstItem="vQi-uj-0d6" firstAttribute="bottom" secondItem="F6L-zb-nJn" secondAttribute="bottom" id="hMg-lr-wZj"/>
-                            <constraint firstAttribute="trailing" secondItem="vQi-uj-0d6" secondAttribute="trailing" id="j9v-Ee-3JH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vQi-uj-0d6" secondAttribute="trailing" id="j9v-Ee-3JH"/>
                             <constraint firstItem="Igf-IY-BPj" firstAttribute="top" secondItem="F6L-zb-nJn" secondAttribute="top" id="kWV-U7-kaf"/>
                             <constraint firstItem="Igf-IY-BPj" firstAttribute="leading" secondItem="F6L-zb-nJn" secondAttribute="leading" constant="19" id="qEU-PX-k0C"/>
                         </constraints>
